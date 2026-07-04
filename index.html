@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Guardweave Labs Private Limited builds PUFGuard, a lightweight hardware-anchored authentication layer for smart wearables and resource-constrained IoT devices." />
+  <meta name="theme-color" content="#081226" />
+  <title>Guardweave Labs | PUFGuard for Secure Wearables</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Guardweave Labs home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#38d5ff" />
+                <stop offset="1" stop-color="#8f5cff" />
+              </linearGradient>
+            </defs>
+            <path d="M32 4 55 14v15c0 15.7-9.5 25.3-23 31C18.5 54.3 9 44.7 9 29V14L32 4Z" fill="url(#g)" opacity="0.95" />
+            <path d="M22 31h20M24 23h16M26 39h12" stroke="#081226" stroke-width="4" stroke-linecap="round" />
+            <circle cx="20" cy="31" r="3" fill="#081226" />
+            <circle cx="44" cy="31" r="3" fill="#081226" />
+            <circle cx="24" cy="23" r="3" fill="#081226" />
+            <circle cx="40" cy="23" r="3" fill="#081226" />
+            <circle cx="26" cy="39" r="3" fill="#081226" />
+            <circle cx="38" cy="39" r="3" fill="#081226" />
+          </svg>
+        </span>
+        <span>
+          <strong>Guardweave Labs</strong>
+          <small>Private Limited</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#product">Product</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#security">Security</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">PUFGuard by Guardweave Labs</p>
+          <h1>Hardware-anchored identity for secure, low-power wearables.</h1>
+          <p class="hero-text">
+            Guardweave Labs builds lightweight authentication infrastructure for smartwatches, fitness trackers, and resource-constrained IoT devices. Our flagship solution, PUFGuard, derives device identity from SRAM-based physical unclonable functions, reducing reliance on stored device secrets while supporting secure session establishment.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="button primary">Request an OEM pilot</a>
+            <a href="#architecture" class="button secondary">Explore architecture</a>
+          </div>
+          <p class="founder-note">Founded by <strong>Chandranshu Gupta</strong>.</p>
+        </div>
+
+        <div class="hero-card" aria-label="PUFGuard system summary">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="device-card">
+            <div class="device-header">
+              <span class="status-dot"></span>
+              <span>PUFGuard Authentication Flow</span>
+            </div>
+            <div class="flow-row">
+              <span>Wearable</span>
+              <strong>SRAM-PUF</strong>
+            </div>
+            <div class="flow-line"></div>
+            <div class="flow-row">
+              <span>Central Authority</span>
+              <strong>Permuted CRP</strong>
+            </div>
+            <div class="flow-line"></div>
+            <div class="flow-row">
+              <span>Client Session</span>
+              <strong>AES Key</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-bar">
+      <div class="container proof-grid">
+        <div><strong>SRAM-PUF</strong><span>Hardware root of trust</span></div>
+        <div><strong>No stored secrets</strong><span>Reduced extraction risk</span></div>
+        <div><strong>ECDHE + AES-GCM</strong><span>Authenticated key exchange</span></div>
+        <div><strong>OEM-ready</strong><span>Provisioning and lifecycle tools</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="product">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">The product</p>
+          <h2>PUFGuard secures device identity without burdening the wearable.</h2>
+        </div>
+        <div>
+          <p>
+            Wearables process sensitive health, payment, and operational telemetry, yet many devices operate under strict compute, memory, and battery constraints. PUFGuard addresses this gap by using intrinsic SRAM startup behavior as an unclonable identity source and by moving policy-heavy verification to a hardened Central Authority.
+          </p>
+        </div>
+      </div>
+
+      <div class="container card-grid three">
+        <article class="card">
+          <span class="card-icon">01</span>
+          <h3>Factory enrollment</h3>
+          <p>OEM routines identify stable SRAM cells, register challenge-response material with the Central Authority, and provision each device with a minimal trust anchor.</p>
+        </article>
+        <article class="card">
+          <span class="card-icon">02</span>
+          <h3>Session authentication</h3>
+          <p>The Central Authority issues session-unique SRAM address permutations, verifies the PUF response, and rejects replayed or inconsistent authentication attempts.</p>
+        </article>
+        <article class="card">
+          <span class="card-icon">03</span>
+          <h3>Secure pairing</h3>
+          <p>After verification, the wearable and client complete an ephemeral key exchange and nonce-based derivation to establish a per-session AES key.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tinted" id="architecture">
+      <div class="container section-heading">
+        <p class="eyebrow">Architecture</p>
+        <h2>Designed for manufacturable security and scalable fleet operations.</h2>
+        <p>PUFGuard separates device enrollment, centralized verification, lightweight firmware execution, and client pairing into a production-oriented trust architecture.</p>
+      </div>
+
+      <div class="container architecture">
+        <div class="arch-step">
+          <div class="step-number">1</div>
+          <h3>OEM provisioning</h3>
+          <p>Automated power-cycle routines identify stable SRAM cells, create CRP bundles, and upload device metadata over secure channels.</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-number">2</div>
+          <h3>Central Authority</h3>
+          <p>The CA stores encrypted CRPs, computes session-specific challenge permutations, verifies responses, and supports lifecycle controls.</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-number">3</div>
+          <h3>Wearable firmware</h3>
+          <p>Minimal firmware performs SRAM readout, error correction, ECDHE, AES-GCM, and BLE/Wi-Fi communication without storing long-term private keys.</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-number">4</div>
+          <h3>Client session</h3>
+          <p>Verified devices establish a fresh encrypted channel with the client for telemetry and command traffic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Security features</p>
+          <h2>Layered protection against cloning, replay, and impersonation.</h2>
+          <p>PUFGuard combines a hardware-derived identity with session freshness, authenticated encryption, and lightweight error correction.</p>
+        </div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <h3>Hardware-anchored identity</h3>
+            <p>Device identity is derived from stable SRAM startup behavior, making cloning substantially harder than copying a stored key.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Session-unique CRP permutation</h3>
+            <p>Each authentication session uses a fresh permutation of SRAM addresses to limit replay and precomputation risk.</p>
+          </div>
+          <div class="feature-item">
+            <h3>AES-GCM protected exchanges</h3>
+            <p>PUF challenges and responses are encrypted and authenticated under ECDHE-derived symmetric keys.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Error correction for reliability</h3>
+            <p>Lightweight correction logic stabilizes noisy SRAM responses under practical operating conditions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted" id="industries">
+      <div class="container section-heading">
+        <p class="eyebrow">Target segments</p>
+        <h2>Built for wearable OEMs and high-trust IoT deployments.</h2>
+      </div>
+      <div class="container card-grid three">
+        <article class="card">
+          <h3>Wearable OEMs</h3>
+          <p>Integrate anti-cloning and device authentication into smartwatches, fitness trackers, and connected personal devices.</p>
+        </article>
+        <article class="card">
+          <h3>Healthcare and telehealth</h3>
+          <p>Improve trust in patient telemetry, device enrollment, and auditability for regulated medical and wellness ecosystems.</p>
+        </article>
+        <article class="card">
+          <h3>Industrial safety</h3>
+          <p>Strengthen identity for worker-safety wearables, asset trackers, and tamper-sensitive field devices.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section roadmap-section">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Roadmap</p>
+          <h2>From pilots to large-scale device fleets.</h2>
+        </div>
+        <div class="timeline">
+          <div>
+            <span>0–9 months</span>
+            <p>Complete production hardening, error correction, OTA pipeline, admin dashboard, and OEM pilots.</p>
+          </div>
+          <div>
+            <span>9–18 months</span>
+            <p>Scale the Central Authority as a multi-tenant cloud service, add platform adapters, and optimize additional MCUs.</p>
+          </div>
+          <div>
+            <span>18+ months</span>
+            <p>Expand regional CA deployments, CRP rotation, managed revocation, and lifecycle services for large fleets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Start a pilot</p>
+          <h2>Secure your wearable fleet with hardware-rooted identity.</h2>
+          <p>Share your integration requirements and the Guardweave Labs team will help evaluate an OEM pilot, SDK integration, or managed Central Authority deployment.</p>
+          <ul class="contact-list">
+            <li><strong>Company:</strong> Guardweave Labs Private Limited</li>
+            <li><strong>Founder:</strong> Chandranshu Gupta</li>
+            <li><strong>Location:</strong> Jammu, Jammu & Kashmir, India</li>
+          </ul>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Work email
+            <input type="email" name="email" placeholder="name@company.com" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Tell us about your device platform, expected volume, and security requirements." required></textarea>
+          </label>
+          <button class="button primary" type="submit">Prepare inquiry</button>
+          <p class="form-note" id="form-note">This demo form opens your email client. Replace the placeholder email in script.js before deployment.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Guardweave Labs Private Limited</strong>
+        <p>Lightweight hardware-anchored security for wearables and constrained IoT devices.</p>
+      </div>
+      <div>
+        <a href="#product">Product</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
